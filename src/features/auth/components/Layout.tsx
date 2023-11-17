@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import formBackgroundUrl from "@/assets/backgrounds/form-background.jpg";
-
 interface Props {
   children: React.ReactNode;
 }
@@ -22,12 +20,11 @@ const FormBackground = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  background: linear-gradient(limegreen, transparent),
+    linear-gradient(90deg, skyblue, transparent),
+    linear-gradient(-90deg, coral, transparent);
 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-image: url(${formBackgroundUrl});
+  background-blend-mode: screen;
 `;
 
 const Container = styled.div`

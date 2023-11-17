@@ -1,9 +1,14 @@
 import { useRoutes } from "react-router-dom";
 
-import { publicRoutes } from "./public";
+import { AuthRoutes } from "@/features/auth";
 
 export const AppRoutes = () => {
-  const element = useRoutes(publicRoutes);
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <AuthRoutes />,
+    },
+  ]);
 
   return <>{element}</>;
 };
