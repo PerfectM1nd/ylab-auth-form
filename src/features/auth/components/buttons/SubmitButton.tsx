@@ -49,7 +49,6 @@ const Container = styled.button`
   user-select: none;
   transition: background-color 0.2s ease-in-out;
   font-size: 24px;
-  letter-spacing: 2px;
 
   ${({ disabled }) => (disabled ? DisabledStyles : EnabledStyles)}
 `;

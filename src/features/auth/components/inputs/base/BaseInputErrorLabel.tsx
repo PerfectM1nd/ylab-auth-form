@@ -20,6 +20,5 @@ const Container = styled.p`
   margin-top: 8px;
   color: ${ERROR_COLOR};
   font-weight: bold;
-  letter-spacing: 1px;
   font-size: 15px;
 `;

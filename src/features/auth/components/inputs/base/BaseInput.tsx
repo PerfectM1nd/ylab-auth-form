@@ -12,7 +12,6 @@ export const BaseInput = styled.input`
   line-height: 24px;
   padding-left: 50px;
   padding-right: 20px;
-  letter-spacing: 1px;
 
   &::placeholder {
     font-weight: normal;

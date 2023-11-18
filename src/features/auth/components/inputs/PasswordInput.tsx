@@ -81,16 +81,18 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
 };
 
 const Input = styled(BaseInput)`
-  padding-right: 55px;
+  padding-right: 60px;
 `;
 
 const HideToggleButton = styled.button`
   color: ${PRIMARY_COLOR};
   cursor: pointer;
-  width: 55px;
+  width: 60px;
   background-color: transparent;
   border: none;
   user-select: none;
+  display: flex;
+  justify-content: center;
 `;
 
 const HideToggleButtonContainer = styled.div`
