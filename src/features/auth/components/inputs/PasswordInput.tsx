@@ -87,8 +87,7 @@ const Input = styled(BaseInput)`
 const HideToggleButton = styled.button`
   color: ${PRIMARY_COLOR};
   cursor: pointer;
-  min-width: 60px;
-  max-width: 60px;
+  width: 60px;
   background-color: transparent;
   border: none;
   user-select: none;

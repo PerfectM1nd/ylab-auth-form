@@ -12,6 +12,7 @@ export const BaseInput = styled.input`
   line-height: 24px;
   padding-left: 50px;
   padding-right: 20px;
+  width: 100%;
 
   &::placeholder {
     font-weight: normal;

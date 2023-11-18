@@ -1,4 +1,5 @@
 @reset-global pc;
+@reset-global mobile;
 
 @font-face {
     font-family: 'Jost';
@@ -13,5 +14,6 @@ body {
 }
 
 html, body {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
