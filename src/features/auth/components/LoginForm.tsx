@@ -105,6 +105,7 @@ const InputContainer = styled.div`
 `;
 
 const Form = styled.form`
+  overflow: hidden;
   :focus-visible {
     outline: 3px solid ${FOCUS_OUTLINE_COLOR};
   }
@@ -118,4 +119,5 @@ const Container = styled.div`
   background-color: rgba(255 255 255 / 0.4);
   backdrop-filter: blur(20px);
   border-radius: 20px;
+  margin: 0 10px;
 `;

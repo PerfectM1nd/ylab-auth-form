@@ -46,7 +46,7 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
             required: "Password is required",
             minLength: {
               value: 8,
-              message: "Password must be at least 8 characters long",
+              message: "Minimum length - 8 characters",
             },
           })}
           id={inputId}
@@ -91,6 +91,13 @@ const HideToggleButton = styled.button`
   user-select: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 10px;
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
 `;
 
 const HideToggleButtonContainer = styled.div`

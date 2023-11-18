@@ -16,10 +16,11 @@ export const RememberMeInput: FC<Props> = ({ register, watch }) => {
 
   const { ref, ...rest } = register("rememberMe");
 
-  const handleEnterKeyPress = (
+  const handleSpaceKeyPress = (
     event: React.KeyboardEvent<HTMLLabelElement>,
   ) => {
-    if (event.key === "Enter") {
+    if (event.key === " ") {
+      event.preventDefault();
       inputRef.current?.click();
     }
   };
@@ -38,7 +39,7 @@ export const RememberMeInput: FC<Props> = ({ register, watch }) => {
       <CheckboxLabel
         htmlFor={inputId}
         tabIndex={0}
-        onKeyDown={handleEnterKeyPress}
+        onKeyDown={handleSpaceKeyPress}
         aria-checked={watch("rememberMe")}
         role="checkbox"
       >
@@ -59,6 +60,7 @@ const LabelText = styled.span`
   margin-left: 8px;
   font-size: 16px;
   color: ${SECONDARY_COLOR};
+  white-space: nowrap;
 `;
 
 const Input = styled.input`
