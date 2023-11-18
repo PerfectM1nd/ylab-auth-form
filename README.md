@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+# Y_LAB task #1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern web application built with React and TypeScript, leveraging the power of Vite for a fast and efficient development experience. It uses a component-based architecture, with a focus on reusable and maintainable code.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A statically typed superset of JavaScript that adds optional types.
+- **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- **Yarn/NPM**: Package managers for the JavaScript programming language.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Authentication**: The project includes a comprehensive authentication system, with features like login, remember me functionality, and password visibility toggle.
+- **Form Validation**: The project uses `react-hook-form` for managing form state and validating user input.
+- **Styling**: The project uses `styled-components` for styling the components, allowing for a more component-centric approach to styling.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+To get started with this project, clone the repository and install the dependencies using either Yarn or NPM.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```bash
+git clone <repository-url>
+cd <repository-name>
+yarn install
+# or
+npm install
