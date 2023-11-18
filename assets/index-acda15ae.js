@@ -190,7 +190,8 @@ Error generating stack: `+o.message+`
 `,tw=Ee.button`
   color: ${ei};
   cursor: pointer;
-  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
   background-color: transparent;
   border: none;
   user-select: none;
