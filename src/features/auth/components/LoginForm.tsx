@@ -105,7 +105,6 @@ const InputContainer = styled.div`
 `;
 
 const Form = styled.form`
-  overflow: hidden;
   :focus-visible {
     outline: 3px solid ${FOCUS_OUTLINE_COLOR};
   }
