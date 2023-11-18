@@ -118,7 +118,6 @@ Error generating stack: `+o.message+`
   user-select: none;
   transition: background-color 0.2s ease-in-out;
   font-size: 24px;
-  letter-spacing: 2px;
 
   ${({disabled:e})=>e?Q1:K1}
 `;var pm=function(e){var t=e.as,n=e.errors,r=e.name,i=e.message,o=e.render,l=function(d,x){if(d==null)return{};var v,S,T={},h=Object.keys(d);for(S=0;S<h.length;S++)x.indexOf(v=h[S])>=0||(T[v]=d[v]);return T}(e,["as","errors","name","message","render"]),a=x1(),s=H(n||a.formState.errors,r);if(!s)return null;var u=s.message,p=s.types,g=Object.assign({},l,{children:u||i});return O.isValidElement(t)?O.cloneElement(t,g):o?o({message:u||i,messages:p}):O.createElement(t||O.Fragment,g)};const G1=()=>$.jsx("svg",{width:"30px",height:"30px",viewBox:"0 0 24 24",xmlns:"http://www.w3.org/2000/svg",fill:$n,children:$.jsx("path",{d:"M12,2 C17.4292399,2 21.8479317,6.32667079 21.9961582,11.7200952 L22,12 L22,13 C22,15.1729208 20.477434,17 18.5,17 C17.3269391,17 16.3139529,16.3570244 15.6839382,15.3803024 C14.770593,16.3757823 13.4581934,17 12,17 C9.23857625,17 7,14.7614237 7,12 C7,9.23857625 9.23857625,7 12,7 C14.6887547,7 16.8818181,9.12230671 16.9953805,11.7831104 L17,12 L17,13 C17,14.1407877 17.7160103,15 18.5,15 C19.2447902,15 19.928229,14.2245609 19.9947109,13.1689341 L20,13 L20,12 C20,7.581722 16.418278,4 12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C13.1630948,20 14.2892822,19.7522618 15.3225159,19.2798331 C15.8247876,19.0501777 16.4181317,19.271177 16.647787,19.7734487 C16.8774423,20.2757205 16.656443,20.8690646 16.1541713,21.0987199 C14.861218,21.689901 13.4515463,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 Z"})}),hm=Ee.input`
@@ -131,7 +130,6 @@ Error generating stack: `+o.message+`
   line-height: 24px;
   padding-left: 50px;
   padding-right: 20px;
-  letter-spacing: 1px;
 
   &::placeholder {
     font-weight: normal;
@@ -164,7 +162,6 @@ Error generating stack: `+o.message+`
   margin-top: 8px;
   color: ${B1};
   font-weight: bold;
-  letter-spacing: 1px;
   font-size: 15px;
 `,ym=({Icon:e})=>$.jsx(Z1,{children:$.jsx(e,{})}),Z1=Ee.div`
   position: absolute;
@@ -189,14 +186,16 @@ Error generating stack: `+o.message+`
 
   ${({hidden:e})=>e&&H1}
 `,q1=({register:e,errors:t})=>{const n=O.useId(),r=O.useId(),[i,o]=O.useState(""),l=a=>{o(a.target.value)};return $.jsxs($.Fragment,{children:[$.jsxs(mm,{children:[$.jsx(vm,{htmlFor:n,hidden:i.length>0,children:"Email"}),$.jsx(ym,{Icon:()=>$.jsx(G1,{})}),$.jsx(hm,{...e("email",{required:"Email is required",pattern:{value:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,message:"Enter a valid email address"}}),id:n,onChange:l,autoComplete:"on","aria-describedby":r})]}),$.jsx(pm,{errors:t,name:"email",render:({message:a})=>$.jsx(gm,{id:r,children:a})})]})},J1=()=>$.jsx("svg",{width:"30px",height:"30px",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",children:$.jsx("path",{d:"M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288",stroke:$n,strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"})}),b1=({register:e,errors:t})=>{const n=O.useId(),r=O.useId(),[i,o]=O.useState(!1),[l,a]=O.useState(""),s=p=>{a(p.target.value)},u=()=>{o(p=>!p)};return $.jsxs($.Fragment,{children:[$.jsxs(rw,{children:[$.jsxs(mm,{children:[$.jsx(vm,{htmlFor:n,hidden:l.length>0,children:"Password"}),$.jsx(ym,{Icon:()=>$.jsx(J1,{})}),$.jsx(ew,{...e("password",{required:"Password is required",minLength:{value:8,message:"Password must be at least 8 characters long"}}),id:n,onChange:s,type:i?"text":"password",autoComplete:"current-password","aria-describedby":r})]}),$.jsx(nw,{children:$.jsx(tw,{type:"button",role:"switch","aria-checked":i,onClick:u,"aria-label":"Toggle password visibility",children:i?"Hide":"Show"})})]}),$.jsx(pm,{errors:t,name:"password",render:({message:p})=>$.jsx(gm,{id:r,children:p})})]})},ew=Ee(hm)`
-  padding-right: 55px;
+  padding-right: 60px;
 `,tw=Ee.button`
   color: ${ei};
   cursor: pointer;
-  width: 55px;
+  width: 60px;
   background-color: transparent;
   border: none;
   user-select: none;
+  display: flex;
+  justify-content: center;
 `,nw=Ee.div`
   position: absolute;
   right: 0;
@@ -306,7 +305,6 @@ Error generating stack: `+o.message+`
 `,hw=Ee.form`
   :focus-visible {
     outline: 3px solid ${V1};
-    box-shadow: 0 0 0 5px white;
   }
 `,mw=Ee.div`
   position: relative;
