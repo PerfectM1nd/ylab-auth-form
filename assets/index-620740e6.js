@@ -79,8 +79,8 @@ Error generating stack: `+o.message+`
     linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
 `,m1=Ee.main`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,9 +148,8 @@ Error generating stack: `+o.message+`
     font-family: sans-serif;
     font-weight: bold;
     speak: none;
-    font-size: 25px;
+    font-size: 22px;
     text-transform: none;
-    text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
     letter-spacing: 2px;
   }
 `,mm=Ee.div`
