@@ -314,7 +314,6 @@ Error generating stack: `+o.message+`
   flex-direction: column;
   margin-top: 32px;
 `,hw=Ee.form`
-  overflow: hidden;
   :focus-visible {
     outline: 3px solid ${V1};
   }
