@@ -27,8 +27,8 @@ const FormBackground = styled.div`
 `;
 
 const Container = styled.main`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
