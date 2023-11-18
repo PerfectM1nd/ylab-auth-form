@@ -1,34 +1,65 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
 import profileSvg from "@/assets/icons/profile.svg";
-import { CheckboxInput } from "@/features/auth/components/inputs/CheckboxInput.tsx";
-import { PRIMARY_COLOR, TEXT_PRIMARY_COLOR } from "@/theme";
+import { FormValues } from "@/features/auth";
+import { FOCUS_OUTLINE_COLOR, PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
 
 import { SubmitButton } from "./buttons/SubmitButton.tsx";
 import { EmailInput } from "./inputs/EmailInput.tsx";
 import { PasswordInput } from "./inputs/PasswordInput.tsx";
+import { RememberMeInput } from "./inputs/RememberMeInput.tsx";
 
 export const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm<FormValues>({
+    mode: "all",
+    defaultValues: {
+      rememberMe: false,
+    },
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = (data: FormValues) => {
+    new Promise((resolve) => {
+      setSubmitting(true);
+      setTimeout(() => {
+        resolve(data);
+        setSubmitting(false);
+      }, 1500);
+    }).then((data) => {
+      alert(`Form submitted successfully! Data given: ${JSON.stringify(data)}`);
+    });
+  };
+
   return (
     <Container>
       <SignInIconContainer>
-        <SignInImage src={profileSvg} alt="Sign in" />
+        <SignInIcon src={profileSvg} alt="Sign in" />
       </SignInIconContainer>
       <SignInText>Sign in</SignInText>
-      <FormContainer>
-        <Form>
-          <InputContainer>
-            <EmailInput />
-          </InputContainer>
-          <InputContainer>
-            <PasswordInput />
-          </InputContainer>
-          <ButtonContainer>
-            <SubmitButton>Log in</SubmitButton>
-          </ButtonContainer>
-          <CheckboxInput />
-        </Form>
-      </FormContainer>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <InputContainer>
+          <EmailInput register={register} errors={errors} />
+        </InputContainer>
+        <InputContainer>
+          <PasswordInput register={register} errors={errors} />
+        </InputContainer>
+        <InputContainer>
+          <RememberMeInput register={register} watch={watch} />
+        </InputContainer>
+        <ButtonContainer>
+          <SubmitButton disabled={submitting}>
+            {submitting ? "Loading..." : "Log in"}
+          </SubmitButton>
+        </ButtonContainer>
+      </Form>
     </Container>
   );
 };
@@ -37,11 +68,11 @@ const SignInText = styled.h1`
   margin-top: 32px;
   text-align: center;
   font-size: 32px;
-  color: ${TEXT_PRIMARY_COLOR};
+  color: ${SECONDARY_COLOR};
   user-select: none;
 `;
 
-const SignInImage = styled.img`
+const SignInIcon = styled.img`
   display: block;
   width: 70px;
   height: 70px;
@@ -52,11 +83,9 @@ const SignInIconContainer = styled.div`
   height: 100px;
   border-radius: 50%;
   background-color: ${PRIMARY_COLOR};
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: absolute;
   top: -50px;
   left: 50%;
@@ -66,20 +95,21 @@ const SignInIconContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-top: 32px;
 `;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
+  margin-top: 32px;
 `;
 
-const FormContainer = styled.div`
-  margin-top: 24px;
+const Form = styled.form`
+  :focus-visible {
+    outline: 3px solid ${FOCUS_OUTLINE_COLOR};
+    box-shadow: 0 0 0 5px white;
+  }
 `;
-
-const Form = styled.form``;
 
 const Container = styled.div`
   position: relative;

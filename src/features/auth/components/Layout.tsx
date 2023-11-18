@@ -23,11 +23,10 @@ const FormBackground = styled.div`
   background: linear-gradient(limegreen, transparent),
     linear-gradient(90deg, skyblue, transparent),
     linear-gradient(-90deg, coral, transparent);
-
   background-blend-mode: screen;
 `;
 
-const Container = styled.div`
+const Container = styled.main`
   width: 100vw;
   height: 100vh;
   display: flex;

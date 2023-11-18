@@ -1,16 +1,49 @@
-import { useId } from "react";
+import React, { FC, useId, useRef } from "react";
+import { UseFormRegister, UseFormWatch } from "react-hook-form";
 import styled from "styled-components";
 
-import { PRIMARY_COLOR, TEXT_PRIMARY_COLOR } from "@/theme";
+import { FormValues } from "@/features/auth";
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
 
-export const CheckboxInput = () => {
-  const id = useId();
+interface Props {
+  register: UseFormRegister<FormValues>;
+  watch: UseFormWatch<FormValues>;
+}
+
+export const RememberMeInput: FC<Props> = ({ register, watch }) => {
+  const inputId = useId();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const { ref, ...rest } = register("rememberMe");
+
+  const handleEnterKeyPress = (
+    event: React.KeyboardEvent<HTMLLabelElement>,
+  ) => {
+    if (event.key === "Enter") {
+      inputRef.current?.click();
+    }
+  };
+
   return (
     <Container>
-      <Input type="checkbox" id={id} />
-      <CheckboxLabel htmlFor={id}>
+      <Input
+        {...rest}
+        id={inputId}
+        ref={(e) => {
+          ref(e);
+          inputRef.current = e; // you can still assign to ref
+        }}
+        type="checkbox"
+      />
+      <CheckboxLabel
+        htmlFor={inputId}
+        tabIndex={0}
+        onKeyDown={handleEnterKeyPress}
+        aria-checked={watch("rememberMe")}
+        role="checkbox"
+      >
         <span>
-          <svg width="12px" height="10px" viewBox="0 0 12 10">
+          <svg viewBox="0 0 12 10">
             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
           </svg>
         </span>
@@ -25,11 +58,17 @@ const Container = styled.div``;
 const LabelText = styled.span`
   margin-left: 8px;
   font-size: 16px;
-  color: ${TEXT_PRIMARY_COLOR};
+  color: ${SECONDARY_COLOR};
 `;
 
 const Input = styled.input`
   display: none;
+
+  & > span {
+    width: 12px;
+    height: 10px;
+  }
+
   &:checked + label {
     span {
       &:first-child {
@@ -38,21 +77,18 @@ const Input = styled.input`
         svg {
           stroke-dashoffset: 0;
         }
-        &:before {
-          transform: scale(3.5);
-          opacity: 0;
-          transition: all 0.6s ease;
-        }
       }
     }
   }
 `;
 
 const CheckboxLabel = styled.label`
-  margin: auto;
-  -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
   span {
     display: inline-block;
     vertical-align: middle;
@@ -68,8 +104,8 @@ const CheckboxLabel = styled.label`
       transition: all 0.2s ease;
       svg {
         position: absolute;
-        top: 4px;
-        left: 3px;
+        top: 2px;
+        left: 1px;
         fill: none;
         stroke: #ffffff;
         stroke-width: 2;
@@ -80,16 +116,6 @@ const CheckboxLabel = styled.label`
         transition: all 0.3s ease;
         transition-delay: 0.1s;
         transform: translate3d(0, 0, 0);
-      }
-      &:before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: ${PRIMARY_COLOR};
-        display: block;
-        transform: scale(0);
-        opacity: 1;
-        border-radius: 50%;
       }
     }
     &:last-child {

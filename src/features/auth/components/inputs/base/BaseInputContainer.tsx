@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputLabel = styled.label`
+export const BaseInputContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;

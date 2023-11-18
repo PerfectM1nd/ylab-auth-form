@@ -5,7 +5,7 @@ interface Props {
   Icon: React.ComponentType;
 }
 
-export const InputLabelIcon: FC<Props> = ({ Icon }) => {
+export const BaseInputIcon: FC<Props> = ({ Icon }) => {
   return (
     <Container>
       <Icon />
@@ -20,4 +20,5 @@ const Container = styled.div`
   top: 0;
   bottom: 0;
   margin: auto 0 auto 10px;
+  pointer-events: none;
 `;

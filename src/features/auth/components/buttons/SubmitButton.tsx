@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import {
   PRIMARY_COLOR,
@@ -9,11 +9,32 @@ import {
 
 interface Props {
   children: React.ReactNode;
+  disabled: boolean;
 }
 
-export const SubmitButton: FC<Props> = ({ children }) => {
-  return <Container type="submit">{children}</Container>;
+export const SubmitButton: FC<Props> = ({ children, disabled }) => {
+  return (
+    <Container type="submit" disabled={disabled}>
+      {children}
+    </Container>
+  );
 };
+
+const DisabledStyles = css`
+  background-color: #ccc;
+  cursor: not-allowed;
+`;
+
+const EnabledStyles = css`
+  &:hover {
+    background-color: ${PRIMARY_COLOR_HOVER};
+  }
+
+  &:active {
+    transition: none;
+    background-color: ${PRIMARY_COLOR_ACTIVE};
+  }
+`;
 
 const Container = styled.button`
   width: 100%;
@@ -30,12 +51,5 @@ const Container = styled.button`
   font-size: 24px;
   letter-spacing: 2px;
 
-  &:hover {
-    background-color: ${PRIMARY_COLOR_HOVER};
-  }
-
-  &:active {
-    transition: none;
-    background-color: ${PRIMARY_COLOR_ACTIVE};
-  }
+  ${({ disabled }) => (disabled ? DisabledStyles : EnabledStyles)}
 `;
