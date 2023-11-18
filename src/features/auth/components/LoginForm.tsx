@@ -6,6 +6,8 @@ import profileSvg from "@/assets/icons/profile.svg";
 import { FormValues } from "@/features/auth";
 import { FOCUS_OUTLINE_COLOR, PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
 
+import { login } from "../api";
+
 import { SubmitButton } from "./buttons/SubmitButton.tsx";
 import { EmailInput } from "./inputs/EmailInput.tsx";
 import { PasswordInput } from "./inputs/PasswordInput.tsx";
@@ -26,16 +28,10 @@ export const LoginForm = () => {
 
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (data: FormValues) => {
-    new Promise((resolve) => {
-      setSubmitting(true);
-      setTimeout(() => {
-        resolve(data);
-        setSubmitting(false);
-      }, 1500);
-    }).then((data) => {
-      alert(`Form submitted successfully! Data given: ${JSON.stringify(data)}`);
-    });
+  const onSubmit = async (data: FormValues) => {
+    setSubmitting(true);
+    await login(data);
+    setSubmitting(false);
   };
 
   return (

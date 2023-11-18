@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "browserslist": "^4.22.1",
+    "fetch-mock": "^9.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
