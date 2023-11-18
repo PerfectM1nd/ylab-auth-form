@@ -160,11 +160,11 @@ Error generating stack: `+o.message+`
   user-select: none;
 `,gm=({id:e,children:t})=>H.jsx(X1,{id:e,"aria-live":"polite",children:t}),X1=Ee.p`
   position: absolute;
-  bottom: -26px;
+  bottom: -25px;
   left: 12px;
   color: ${B1};
   font-weight: bold;
-  font-size: 15px;
+  font-size: 12px;
 `,ym=({Icon:e})=>H.jsx(Z1,{children:H.jsx(e,{})}),Z1=Ee.div`
   position: absolute;
   width: 30px;
