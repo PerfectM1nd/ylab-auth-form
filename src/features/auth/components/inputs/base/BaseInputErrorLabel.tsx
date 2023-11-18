@@ -17,7 +17,9 @@ export const BaseInputErrorLabel: FC<Props> = ({ id, children }) => {
 };
 
 const Container = styled.p`
-  margin-top: 8px;
+  position: absolute;
+  bottom: -26px;
+  left: 12px;
   color: ${ERROR_COLOR};
   font-weight: bold;
   font-size: 15px;

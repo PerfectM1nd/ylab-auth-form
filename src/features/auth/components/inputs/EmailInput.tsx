@@ -28,26 +28,24 @@ export const EmailInput: FC<Props> = ({ register, errors }) => {
   };
 
   return (
-    <>
-      <BaseInputContainer>
-        <BaseInputLabel htmlFor={inputId} hidden={email.length > 0}>
-          Email
-        </BaseInputLabel>
-        <BaseInputIcon Icon={() => <EmailIcon />} />
-        <BaseInput
-          {...register("email", {
-            required: "Email is required",
-            pattern: {
-              value: /.+@.+\..+/i,
-              message: "Enter a valid email address",
-            },
-          })}
-          id={inputId}
-          onChange={handleEmailChange}
-          autoComplete="on"
-          aria-describedby={errorLabelId}
-        />
-      </BaseInputContainer>
+    <BaseInputContainer>
+      <BaseInputLabel htmlFor={inputId} hidden={email.length > 0}>
+        Email
+      </BaseInputLabel>
+      <BaseInputIcon Icon={() => <EmailIcon />} />
+      <BaseInput
+        {...register("email", {
+          required: "Email is required",
+          pattern: {
+            value: /.+@.+\..+/i,
+            message: "Enter a valid email address",
+          },
+        })}
+        id={inputId}
+        onChange={handleEmailChange}
+        autoComplete="on"
+        aria-describedby={errorLabelId}
+      />
       <ErrorMessage
         errors={errors}
         name="email"
@@ -55,6 +53,6 @@ export const EmailInput: FC<Props> = ({ register, errors }) => {
           <BaseInputErrorLabel id={errorLabelId}>{message}</BaseInputErrorLabel>
         )}
       />
-    </>
+    </BaseInputContainer>
   );
 };

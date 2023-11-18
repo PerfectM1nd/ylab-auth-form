@@ -35,40 +35,38 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
   };
 
   return (
-    <>
-      <Container>
-        <BaseInputContainer>
-          <BaseInputLabel htmlFor={inputId} hidden={password.length > 0}>
-            Password
-          </BaseInputLabel>
-          <BaseInputIcon Icon={() => <LockIcon />} />
-          <Input
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 8,
-                message: "Password must be at least 8 characters long",
-              },
-            })}
-            id={inputId}
-            onChange={handlePasswordChange}
-            type={passwordVisible ? "text" : "password"}
-            autoComplete="current-password"
-            aria-describedby={errorLabelId}
-          />
-        </BaseInputContainer>
-        <HideToggleButtonContainer>
-          <HideToggleButton
-            type="button"
-            role="switch"
-            aria-checked={passwordVisible}
-            onClick={handleTogglePasswordVisibility}
-            aria-label="Toggle password visibility"
-          >
-            {passwordVisible ? "Hide" : "Show"}
-          </HideToggleButton>
-        </HideToggleButtonContainer>
-      </Container>
+    <Container>
+      <BaseInputContainer>
+        <BaseInputLabel htmlFor={inputId} hidden={password.length > 0}>
+          Password
+        </BaseInputLabel>
+        <BaseInputIcon Icon={() => <LockIcon />} />
+        <Input
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters long",
+            },
+          })}
+          id={inputId}
+          onChange={handlePasswordChange}
+          type={passwordVisible ? "text" : "password"}
+          autoComplete="current-password"
+          aria-describedby={errorLabelId}
+        />
+      </BaseInputContainer>
+      <HideToggleButtonContainer>
+        <HideToggleButton
+          type="button"
+          role="switch"
+          aria-checked={passwordVisible}
+          onClick={handleTogglePasswordVisibility}
+          aria-label="Toggle password visibility"
+        >
+          {passwordVisible ? "Hide" : "Show"}
+        </HideToggleButton>
+      </HideToggleButtonContainer>
       <ErrorMessage
         errors={errors}
         name="password"
@@ -76,7 +74,7 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
           <BaseInputErrorLabel id={errorLabelId}>{message}</BaseInputErrorLabel>
         )}
       />
-    </>
+    </Container>
   );
 };
 
