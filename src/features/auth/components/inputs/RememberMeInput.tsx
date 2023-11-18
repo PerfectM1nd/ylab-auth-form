@@ -31,7 +31,7 @@ export const RememberMeInput: FC<Props> = ({ register, watch }) => {
         id={inputId}
         ref={(e) => {
           ref(e);
-          inputRef.current = e; // you can still assign to ref
+          inputRef.current = e;
         }}
         type="checkbox"
       />
