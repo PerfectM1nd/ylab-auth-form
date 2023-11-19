@@ -37,8 +37,8 @@ export const EmailInput: FC<Props> = ({ register, errors, value }) => {
           },
         })}
         id={inputId}
-        autoComplete="on"
         aria-describedby={errorLabelId}
+        autoComplete="email"
       />
       <ErrorMessage
         errors={errors}

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import profileSvg from "@/assets/icons/profile.svg";
 import { FormValues } from "@/features/auth";
-import { FOCUS_OUTLINE_COLOR, PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
 
 import { login } from "../api";
 
@@ -37,10 +37,10 @@ export const LoginForm = () => {
   return (
     <Container>
       <SignInIconContainer>
-        <SignInIcon src={profileSvg} alt="Sign in" />
+        <SignInIcon src={profileSvg} alt="" role="presentation" />
       </SignInIconContainer>
       <SignInText>Sign in</SignInText>
-      <Form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} spellCheck={false}>
         <InputContainer>
           <EmailInput
             register={register}
@@ -56,18 +56,14 @@ export const LoginForm = () => {
           />
         </InputContainer>
         <InputContainer>
-          <RememberMeInput
-            register={register}
-            submitFormCallback={onSubmit}
-            value={watch("rememberMe")}
-          />
+          <RememberMeInput register={register} />
         </InputContainer>
         <ButtonContainer>
           <SubmitButton disabled={submitting}>
             {submitting ? "Loading..." : "Log in"}
           </SubmitButton>
         </ButtonContainer>
-      </Form>
+      </form>
     </Container>
   );
 };
@@ -110,12 +106,6 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 32px;
-`;
-
-const Form = styled.form`
-  :focus-visible {
-    outline: 3px solid ${FOCUS_OUTLINE_COLOR};
-  }
 `;
 
 const Container = styled.div`

@@ -31,36 +31,32 @@ export const PasswordInput: FC<Props> = ({ register, errors, value }) => {
   };
 
   return (
-    <Container>
-      <BaseInputContainer>
-        <BaseInputLabel htmlFor={inputId} hidden={!!value}>
-          Password
-        </BaseInputLabel>
-        <BaseInputIcon Icon={() => <LockIcon />} />
-        <Input
-          {...register("password", {
-            required: "Password is required",
-            minLength: {
-              value: 8,
-              message: "Minimum length - 8 characters",
-            },
-          })}
-          id={inputId}
-          // onChange={handlePasswordChange}
-          type={passwordVisible ? "text" : "password"}
-          autoComplete="current-password"
-          aria-describedby={errorLabelId}
-        />
-      </BaseInputContainer>
+    <BaseInputContainer>
+      <BaseInputLabel htmlFor={inputId} hidden={!!value}>
+        Password
+      </BaseInputLabel>
+      <BaseInputIcon Icon={() => <LockIcon />} />
+      <Input
+        {...register("password", {
+          required: "Password is required",
+          minLength: {
+            value: 8,
+            message: "Minimum length - 8 characters",
+          },
+        })}
+        id={inputId}
+        type={passwordVisible ? "text" : "password"}
+        aria-describedby={errorLabelId}
+      />
       <HideToggleButtonContainer>
         <HideToggleButton
           type="button"
           role="switch"
           aria-checked={passwordVisible}
           onClick={handleTogglePasswordVisibility}
-          aria-label="Toggle password visibility"
+          aria-label="Password visibility"
         >
-          {passwordVisible ? "Hide" : "Show"}
+          <span aria-hidden="true">{passwordVisible ? "Hide" : "Show"}</span>
         </HideToggleButton>
       </HideToggleButtonContainer>
       <ErrorMessage
@@ -70,7 +66,7 @@ export const PasswordInput: FC<Props> = ({ register, errors, value }) => {
           <BaseInputErrorLabel id={errorLabelId}>{message}</BaseInputErrorLabel>
         )}
       />
-    </Container>
+    </BaseInputContainer>
   );
 };
 
@@ -90,10 +86,7 @@ const HideToggleButton = styled.button`
   align-items: center;
   height: 100%;
   border-radius: 10px;
-
-  &:active {
-    background-color: rgba(0, 0, 0, 0.06);
-  }
+  font-size: 17px;
 `;
 
 const HideToggleButtonContainer = styled.div`
@@ -104,8 +97,4 @@ const HideToggleButtonContainer = styled.div`
   display: flex;
   align-items: center;
   font-weight: bold;
-`;
-
-const Container = styled.div`
-  position: relative;
 `;

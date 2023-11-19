@@ -10,7 +10,7 @@ interface Props {
 
 export const BaseInputErrorLabel: FC<Props> = ({ id, children }) => {
   return (
-    <Container id={id} aria-live="polite">
+    <Container id={id} aria-live="assertive">
       {children}
     </Container>
   );

@@ -17,4 +17,10 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #efa237;
 }

@@ -5,8 +5,7 @@ export const PRIMARY_COLOR_HOVER = "rgba(142 187 124 / 0.8)";
 export const PRIMARY_COLOR_ACTIVE = "rgba(142 187 124 / 0.5)";
 
 export const SECONDARY_COLOR = "#666";
-
-export const FOCUS_OUTLINE_COLOR = "#efa237";
+export const SECONDARY_COLOR_LIGHT = "#999";
 
 export const ERROR_COLOR = "#fd4114";
 

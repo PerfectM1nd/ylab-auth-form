@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { HiddenForAccessibility, SECONDARY_COLOR } from "@/theme";
+import { HiddenForAccessibility, SECONDARY_COLOR_LIGHT } from "@/theme";
 
 export const BaseInputLabel = styled.label`
   position: absolute;
@@ -10,7 +10,7 @@ export const BaseInputLabel = styled.label`
   margin: auto 0;
   display: flex;
   align-items: center;
-  color: ${SECONDARY_COLOR};
+  color: ${SECONDARY_COLOR_LIGHT};
   font-weight: normal;
   font-size: 20px;
   pointer-events: none;
