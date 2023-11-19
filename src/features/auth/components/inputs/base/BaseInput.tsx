@@ -6,7 +6,7 @@ export const BaseInput = styled.input`
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: rgba(255 255 255 / 0.7);
+  background-color: rgba(255 255 255 / 0.6);
   color: ${SECONDARY_COLOR};
   font-size: 20px;
   line-height: 24px;

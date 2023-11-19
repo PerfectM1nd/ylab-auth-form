@@ -24,6 +24,20 @@ const FormBackground = styled.div`
     linear-gradient(90deg, skyblue, transparent),
     linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
+  background-size: 110% 110%;
+
+  animation: gradient 10s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
 `;
 
 const Container = styled.main`
