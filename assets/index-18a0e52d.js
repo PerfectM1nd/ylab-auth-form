@@ -78,6 +78,20 @@ Error generating stack: `+o.message+`
     linear-gradient(90deg, skyblue, transparent),
     linear-gradient(-90deg, coral, transparent);
   background-blend-mode: screen;
+  background-size: 110% 110%;
+
+  animation: gradient 10s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
 `,Hx=Ie.main`
   width: 100%;
   height: 100vh;
@@ -133,7 +147,7 @@ This is an unavoidable consequence of the nodejs implementation of streams.
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: rgba(255 255 255 / 0.7);
+  background-color: rgba(255 255 255 / 0.6);
   color: ${Rr};
   font-size: 20px;
   line-height: 24px;
