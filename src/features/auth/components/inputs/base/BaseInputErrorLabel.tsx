@@ -24,4 +24,5 @@ const Container = styled.p`
   font-weight: bold;
   font-size: 15px;
   white-space: nowrap;
+  user-select: none;
 `;

@@ -1,5 +1,5 @@
 import React, { FC, useId, useRef } from "react";
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import styled from "styled-components";
 
 import { FormValues } from "@/features/auth";
@@ -7,21 +7,26 @@ import { PRIMARY_COLOR, SECONDARY_COLOR } from "@/theme";
 
 interface Props {
   register: UseFormRegister<FormValues>;
-  watch: UseFormWatch<FormValues>;
+  submitFormCallback: () => void;
+  value: boolean;
 }
 
-export const RememberMeInput: FC<Props> = ({ register, watch }) => {
+export const RememberMeInput: FC<Props> = ({
+  register,
+  submitFormCallback,
+  value,
+}) => {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const { ref, ...rest } = register("rememberMe");
 
-  const handleSpaceKeyPress = (
-    event: React.KeyboardEvent<HTMLLabelElement>,
-  ) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLLabelElement>) => {
     if (event.key === " ") {
-      event.preventDefault();
       inputRef.current?.click();
+    }
+    if (event.key === "Enter") {
+      submitFormCallback();
     }
   };
 
@@ -39,8 +44,8 @@ export const RememberMeInput: FC<Props> = ({ register, watch }) => {
       <CheckboxLabel
         htmlFor={inputId}
         tabIndex={0}
-        onKeyDown={handleSpaceKeyPress}
-        aria-checked={watch("rememberMe")}
+        onKeyDown={handleKeyDown}
+        aria-checked={value}
         role="checkbox"
       >
         <span>

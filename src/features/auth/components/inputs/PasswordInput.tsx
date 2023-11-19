@@ -1,5 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
-import React, { FC, useId, useState } from "react";
+import { FC, useId, useState } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import styled from "styled-components";
 
@@ -17,18 +17,14 @@ import { BaseInputLabel } from "./base/BaseInputLabel.tsx";
 interface Props {
   register: UseFormRegister<FormValues>;
   errors: FieldErrors<FormValues>;
+  value: string;
 }
 
-export const PasswordInput: FC<Props> = ({ register, errors }) => {
+export const PasswordInput: FC<Props> = ({ register, errors, value }) => {
   const inputId = useId();
   const errorLabelId = useId();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [password, setPassword] = useState("");
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
 
   const handleTogglePasswordVisibility = () => {
     setPasswordVisible((prev) => !prev);
@@ -37,7 +33,7 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
   return (
     <Container>
       <BaseInputContainer>
-        <BaseInputLabel htmlFor={inputId} hidden={password.length > 0}>
+        <BaseInputLabel htmlFor={inputId} hidden={!!value}>
           Password
         </BaseInputLabel>
         <BaseInputIcon Icon={() => <LockIcon />} />
@@ -50,7 +46,7 @@ export const PasswordInput: FC<Props> = ({ register, errors }) => {
             },
           })}
           id={inputId}
-          onChange={handlePasswordChange}
+          // onChange={handlePasswordChange}
           type={passwordVisible ? "text" : "password"}
           autoComplete="current-password"
           aria-describedby={errorLabelId}

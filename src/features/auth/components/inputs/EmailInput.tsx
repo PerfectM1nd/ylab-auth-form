@@ -1,5 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
-import React, { FC, useId, useState } from "react";
+import { FC, useId } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 import { FormValues } from "@/features/auth";
@@ -15,21 +15,16 @@ import { BaseInputLabel } from "./base/BaseInputLabel.tsx";
 interface Props {
   register: UseFormRegister<FormValues>;
   errors: FieldErrors<FormValues>;
+  value: string;
 }
 
-export const EmailInput: FC<Props> = ({ register, errors }) => {
+export const EmailInput: FC<Props> = ({ register, errors, value }) => {
   const inputId = useId();
   const errorLabelId = useId();
 
-  const [email, setEmail] = useState("");
-
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
   return (
     <BaseInputContainer>
-      <BaseInputLabel htmlFor={inputId} hidden={email.length > 0}>
+      <BaseInputLabel htmlFor={inputId} hidden={!!value}>
         Email
       </BaseInputLabel>
       <BaseInputIcon Icon={() => <EmailIcon />} />
@@ -42,7 +37,6 @@ export const EmailInput: FC<Props> = ({ register, errors }) => {
           },
         })}
         id={inputId}
-        onChange={handleEmailChange}
         autoComplete="on"
         aria-describedby={errorLabelId}
       />

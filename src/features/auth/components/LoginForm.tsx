@@ -20,7 +20,6 @@ export const LoginForm = () => {
     formState: { errors },
     watch,
   } = useForm<FormValues>({
-    mode: "all",
     defaultValues: {
       rememberMe: false,
     },
@@ -28,11 +27,12 @@ export const LoginForm = () => {
 
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = handleSubmit(async (data: FormValues) => {
     setSubmitting(true);
+    console.log(data);
     await login(data);
     setSubmitting(false);
-  };
+  });
 
   return (
     <Container>
@@ -40,15 +40,27 @@ export const LoginForm = () => {
         <SignInIcon src={profileSvg} alt="Sign in" />
       </SignInIconContainer>
       <SignInText>Sign in</SignInText>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={onSubmit}>
         <InputContainer>
-          <EmailInput register={register} errors={errors} />
+          <EmailInput
+            register={register}
+            errors={errors}
+            value={watch("email")}
+          />
         </InputContainer>
         <InputContainer>
-          <PasswordInput register={register} errors={errors} />
+          <PasswordInput
+            register={register}
+            errors={errors}
+            value={watch("password")}
+          />
         </InputContainer>
         <InputContainer>
-          <RememberMeInput register={register} watch={watch} />
+          <RememberMeInput
+            register={register}
+            submitFormCallback={onSubmit}
+            value={watch("rememberMe")}
+          />
         </InputContainer>
         <ButtonContainer>
           <SubmitButton disabled={submitting}>
